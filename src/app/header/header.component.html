@@ -13,7 +13,7 @@
 
                 <div class="col-4">
                     <label for="invoice-date" class="form-label">Date</label>
-                    <input type="date" name="invoice-date" id="invoice-date" class="form-control" [value]="date" readonly>
+                    <input type="text" name="invoice-date" id="invoice-date" class="form-control" [value]="date | date: 'dd-MMM-yyyy'" readonly>
                 </div>
             </div>
 
