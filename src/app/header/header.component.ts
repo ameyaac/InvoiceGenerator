@@ -9,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  date = new Date().toISOString().split("T")[0];  
+
 }

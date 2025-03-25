@@ -1,18 +1,36 @@
 <form action="" method="get">
-    <div class="card m-3">
-        <div class="card-header">
+    <div class="card m-5">
+        <div class="card-header p-3">
             <h1>Invoice-Bill</h1>
         </div>
-        <div class="card-body">
-            <div class="input-group">
-                <label for="invoice-id" class="input-group-text">ID</label>
-                <input type="text" name="invoice-id" id="invoice-id" class="form-control" placeholder="Enter ID">
+        <div class="card-body p-3">
+            <div class="row g-3">
+                <div class="col-8">
+                    <label for="invoice-id" class="form-label">ID</label>
+                    <input type="text" name="invoice-id" id="invoice-id" class="form-control ps-3"
+                        placeholder="XXXX-XXXX-XXXX" readonly>
+                </div>
+
+                <div class="col-4">
+                    <label for="invoice-date" class="form-label">Date</label>
+                    <input type="date" name="invoice-date" id="invoice-date" class="form-control" [value]="date" readonly>
+                </div>
             </div>
 
-            <label for="invoice-issue-date">Date</label>
-            <input type="date" name="invoice-issue-date" id="invoice-issue-date" class="form-control">
-            <label for="invoice-due-date">Due Date</label>
-            <input type="date" name="invoice-due-date" id="invoice-due-date" class="form-control">
+            <div class="row g-3 mt-1">
+
+                <div class="col-4">
+                    <label for="invoice-by" class="form-label">By</label>
+                    <input type="email" name="invoice-by" id="invoice-by" class="form-control" value="Ameyaa C" readonly>
+                </div>
+                <div class="col-8">
+                    <label for="invoice-to" class="form-label">To</label>
+                    <input type="text" name="invoice-to" id="invoice-to" class="form-control" required>
+                </div>
+
+
+            </div>
+
         </div>
     </div>
 </form>
