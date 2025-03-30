@@ -1,6 +1,6 @@
 export interface ParticularItem {
     description: string;
-    quatity: number;
+    quantity: number;
     rate: number;
     amount: number;
     comment?: string;

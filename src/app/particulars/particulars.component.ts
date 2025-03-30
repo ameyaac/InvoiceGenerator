@@ -30,7 +30,7 @@ export class ParticularsComponent {
   addItem() {
     this.items.push({
       description: '',
-      quatity: 1,
+      quantity: 1,
       rate: 0.0,
       amount: 0.0,
       comment: '',
@@ -45,7 +45,7 @@ export class ParticularsComponent {
 
   calculateAmount(index: number) {
     let item = this.items[index];
-    item.amount = item.rate * item.quatity;
+    item.amount = item.rate * item.quantity;
     this.calculateSubTotal();
   }
 
