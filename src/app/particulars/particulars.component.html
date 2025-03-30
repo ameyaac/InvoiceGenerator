@@ -13,11 +13,11 @@
             <tr *ngFor = "let item of items; let i = index" class="row">
                 <td class="col-8 d-flex">
                     <input type="text" class="form-control" maxlength="100" [(ngModel)]="item.description">
-                    <button class="btn btn-warning" (click)="toggleComment(i)" [ngClass]="(item.showComment) ? 'bi-chat-left-text-fill' : 'bi-chat-left-text'"></button>
+                    <button class="btn btn-warning ms-1" (click)="toggleComment(i)" [ngClass]="(item.showComment) ? 'bi-chat-left-text-fill' : 'bi-chat-left-text'"></button>
                 </td>
                 <td class="col"><input type="number" class="form-control" max="10" min="0" step="0.1" [(ngModel)]="item.quatity" (input)="calculateAmount(i)"></td>
                 <td class="col"><input type="number" class="form-control" min="0.0" step="0.01" [ngModel]="item.rate | number: '1.2-2'" (ngModelChange)="item.rate=$event" (input)="calculateAmount(i)"></td>
-                <td class="col"><input type="number" class="form-control" min="0.0" step="0.01" [value]="item.amount | number: '1.2-2'"></td>
+                <td class="col"><input type="number" class="form-control" min="0.0" step="0.01" [value]="item.amount | number: '1.2-2'" readonly></td>
                 <td class="col">
                     <button class="btn btn-danger bi-trash" (click)="removeItem(i)"></button>
                 </td>
@@ -28,6 +28,35 @@
             <tr>
                 <td class="d-flex flex-row-reverse">
                     <button class="btn btn-primary" (click)="addItem()"><i class="bi-plus"> </i>Add Item</button>
+                </td>
+            </tr>
+            <tr class="row">
+                <td class="col d-flex flex-column-reverse">
+                    CSSSA-{{date | date: 'yyyyMMddHHmmss'}}
+                </td>
+                <td class="d-flex flex-row-reverse mt-5 col">
+                    <div class="d-flex flex-column">
+                        <div class="input-group d-flex">
+                            <label for="sub-total" class="input-group-text">Sub-Total: </label>
+                            <input type="number" id="sub-total" class="form-control" [value]="total.subTotal | number: '1.2-2'" readonly>
+                            <label for="sub-total" class="input-group-text">INR</label>
+                        </div>
+                        <div class="input-group d-flex">
+                            <label for="discount" class="input-group-text">Discount: </label>
+                            <input type="number" id="discount" class="form-control" min="0" step="0.01" [(ngModel)]="total.discount" (input)="calculateGrandTotal()">
+                            <label for="discount" class="input-group-text">INR</label>
+                        </div>
+                        <div class="input-group d-flex">
+                            <label for="tax" class="input-group-text">Tax: </label>
+                            <input type="number" id="tax" class="form-control" min="0" step="0.01" [(ngModel)]="total.tax" (input)="calculateGrandTotal()">
+                            <label for="tax" class="input-group-text">INR</label>
+                        </div>
+                        <div class="input-group-lg d-flex">
+                            <label for="grand-total" class="input-group-text">Grand Total: </label>
+                            <input type="number" id="grand-total" class="form-control" [value]="total.grandTotal | number: '1.2-2'" readonly>
+                            <label for="grand-total" class="input-group-text">INR</label>
+                        </div>
+                    </div>
                 </td>
             </tr>
         </tbody>

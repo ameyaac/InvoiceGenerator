@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { randomUUID, UUID } from 'crypto';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
 
-  date = new Date().toISOString().split("T")[0];  
-
+  // date = new Date().toISOString().split("T")[0];
+  date: Date = new Date();
+  id: UUID = randomUUID();
 }
