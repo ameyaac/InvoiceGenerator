@@ -1,7 +1,11 @@
-<app-header></app-header>
+<div #invoice>
+    <app-header></app-header>
 
-<app-particulars></app-particulars>
+    <app-particulars></app-particulars>
 
-<app-footer></app-footer>
+    <app-footer></app-footer>
+</div>
 
-<router-outlet></router-outlet>
+<button type="button" class="btn btn-danger m-5" (click)="generatePDF()"><i class="bi-filetype-pdf"></i> Download PDF</button>
+
+<!-- <router-outlet></router-outlet> -->
